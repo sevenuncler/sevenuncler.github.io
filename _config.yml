@@ -1,3 +1,4 @@
-theme: minimal
+theme: jekyll-theme-minimal
+markdown: kramdown
 title: SevenUncler's 主页
 description: Bookmark this to keep an eye on my project updates!
