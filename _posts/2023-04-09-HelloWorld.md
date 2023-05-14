@@ -9,5 +9,5 @@ title:  "Welcome to Jekyll!"
 
 I hope you like it!
 
-![image](assets/imgs/timeprofiler_select_app.png)
+![image](imgs/timeprofiler_select_app.png)
 
