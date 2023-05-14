@@ -2,7 +2,6 @@
 如何拆分 Runloop 查看耗时
 
 1.  图片后台绘制进 CGBitmapContext
-
 VSync 垂直同步
 
 HSync 水平同步的目的？
@@ -40,16 +39,17 @@ Xcode Instruments API 学习
 ## 如何使用
 1. 准备工程 
 2. Xcode - Product - Profile - Time Profiler
+![image] /assets/imgs/timeprofiler_select_app.png
 > profile releases build
-3. 选择目标 App，左边按钮开启检测
+1. 选择目标 App，左边按钮开启检测
   - Time Profiler 轨道
   - Points of Interest 轨道，用于精准的分析函数耗时
   - Thermal State
   - 
-4. App 内操作
-5. 查找 CPU 耗时的位置
-6. 找到最耗时的调用函数
-7. 计算精确耗时
+2. App 内操作
+3. 查找 CPU 耗时的位置
+4. 找到最耗时的调用函数
+5. 计算精确耗时
 
 添加额外的模版
 Window mode
