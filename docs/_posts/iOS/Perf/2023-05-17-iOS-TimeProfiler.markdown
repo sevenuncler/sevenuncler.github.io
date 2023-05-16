@@ -1,11 +1,12 @@
 ---
 layout: post
 title:  "iOS Instruments - Time Profiler"
-date:   2023-05-16 08:17:51 +0800
+date:   2023-05-17 08:17:51 +0800
 categories: iOS Perf
 ---
 
 # TODO
+![images](imgs/time_profiler_start.png)
 如何拆分 Runloop 查看耗时
 
 1.  图片后台绘制进 CGBitmapContext
