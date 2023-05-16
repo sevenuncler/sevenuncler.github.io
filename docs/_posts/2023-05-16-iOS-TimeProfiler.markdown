@@ -6,7 +6,9 @@ categories: iOS Perf
 ---
 
 # TODO
-![images](assets/imgs/time_profiler_start.png)
+![image](/assets/imgs/time_profiler_start.png)
+![image](time_profiler_start.png)
+
 如何拆分 Runloop 查看耗时
 
 1.  图片后台绘制进 CGBitmapContext
