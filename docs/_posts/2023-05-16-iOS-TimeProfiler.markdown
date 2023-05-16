@@ -6,8 +6,6 @@ categories: iOS Perf
 ---
 
 # TODO
-![image](/assets/imgs/time_profiler_start.png)
-![image](time_profiler_start.png)
 
 如何拆分 Runloop 查看耗时
 
@@ -58,13 +56,15 @@ Xcode Instruments API 学习
 一般 Time Profiler 都针对 Release 模式做分析，因为相比 Debug 模式，系统对 Release 模式做了很多编译优化，因此 Release 模式更接近实际用户的体验效果，官方也建议在 Relase 模式下分析，但是如果需要，Time Profiler 也可以对 Debug 包做优化。
 修改方法：Xcode - Product - Scheme - Edit Scheme - Profile - Info - 选择 Debug
 3. 选择目标 App，左边按钮开启检测
+  
+  ![image](/assets/imgs/time_profiler_start.png)
   - Time Profiler 轨道, 记录 CPU 的使用情况
   - Points of Interest 轨道，用于精准的分析自定义事件耗时
   - Thermal State 热状态，即设备的发热状态(Normal、Fair、Serious、Ciritical)
   - 目标进程、线程 CPU 使用情况
   - 
-4. App 内进行用户操作
-5. 查找 CPU 耗时的位置
+1. App 内进行用户操作
+2. 查找 CPU 耗时的位置
 在 Time Profiler 轨道找到 CPU 耗时尖峰处，暂停，选中尖峰处
 在下方查看细节
 Weight 在分析的这段时间内，右边的符号被捕获到正在执行的时间，因为这个值本身只代表被采样到的耗时，即假如整个 App 执行期间执行了10s，某个方法这期间内一直在执行，采样了总共5s的耗时，那体现在 Weight 上的这个方法的耗时为5s，因此这里主要用于看占比，占比高以为这这个函数大概率的性能瓶颈
