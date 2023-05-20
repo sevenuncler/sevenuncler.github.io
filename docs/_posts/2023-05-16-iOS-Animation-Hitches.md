@@ -79,4 +79,5 @@ Render Server 计算纹理信息交给 GPU 处理，即 Render Phase，这个阶
 从 VSync_expected 发出某帧应该展示时，到最终实际展示 的 VSync_show
 5. 主 Runloop 与 VSync 之间的关系？  
 主线程 Runloop 接收 VSync 信号唤醒进行视图状态变更收集，因此 Runloop 执行循环并不是与 VSync 完全一一对应，即假如主 Runloop 一直忙碌中在执行任务，则 Runloop 期间接收到的唤醒信号并没有实质上有对应的提交。  
-假如前一个计算了一帧缓存，接下来的 VSync 又改变了，这个时候 GPU 怎么处理缓存？
+6. 假如前一个计算了一帧缓存，接下来的 VSync 又改变了，这个时候 GPU 怎么处理缓存？
+猜测也是和 Core Animation一样统一收集变更而不是一有变更就执行渲染。
