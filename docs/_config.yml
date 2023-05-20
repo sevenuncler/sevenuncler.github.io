@@ -16,10 +16,13 @@
 title: 七大爷 - Sevenuncler
 email: easycynly@126.com
 description: >- # this means to ignore newlines until "baseurl:"
-    每天都想成为5星iOS开发！<br>
+    每天都想成为5星iOS开发！<br> \
     保持专注!
-    基础知识、动画特效、业务架构、性能优化、网络编程、算法!<br/>
+    
+    基础知识、动画特效、业务架构、性能优化、网络编程、算法!<br />
+    
     理解表达能力!
+    
     2016 - 2023
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
