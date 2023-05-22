@@ -117,6 +117,9 @@ categories: iOS Perf
 
 ## 参考
 官方：https://developer.apple.com/videos/play/tech-talks/10856
+
 Time Profiler 使用：《Using Time Profiler in instruments》
+
 保持界面流畅的技巧：https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
+
 字节：https://juejin.cn/post/7231731488928399415?from=bytetech
