@@ -4,8 +4,6 @@ title:  "iOS Animation Hitches(2) - Commit Hitch 优化"
 date:   2023-05-22 13:58:51 +0800
 categories: iOS Perf
 ---
-
-# Animation Hitches(2) - Commit Hitch 优化
 ## 序言
 上一篇已经介绍了iOS设备卡顿的阶段主要来自：
 1. App 中打包视图树的超时导致卡顿 (*Commit Hitch*)    
@@ -42,6 +40,7 @@ categories: iOS Perf
 > - 递归布局代价昂贵，视图只应该使自己会子视图布局失效，而不是父试图？ 
 
 > BeforeWaiting 是不是意味着本次 Runloop 变更的视图，需要等下一个 Runloop 才会被提交到 Render Server 呢？
+
 ## Display(显示)
 需要 Display 的场景有：
 - 重写 `drawRect` 方法，在自定义视图需要更新内容时
@@ -50,6 +49,7 @@ categories: iOS Perf
 
 > 因此尽量避免不必要的 drawRect 方法重写, 使用 *CALayer* 的 GPU 加速的属性代替自定义 `draw(rect:)` 的代码，避免使用 CPU (*CoreGraphics*)处理自定义绘图。
 > 去除空的 `draw(rect:)` 方法
+
 ## prepare(提交前准备)
 - 图像解码，如 PNG\JPEG 格式图片解压缩、解码成 bitmap 格式
 - 图像转换，某些图像的颜色格式 GPU 无法直接处理，比如 YUV 等图像颜色格式？
@@ -75,6 +75,7 @@ categories: iOS Perf
 
 ## commit(提交)
 最终视图树将被递归打包给 render server，层级很深的视图树打包时间就需要更久
+
 ## 示例
 准备一个 Xcode 工程，Xcode - Product - Profile(运行Release配置) - 打开 Instruments，选择 Animation Hitches, 选择目标 App，左边按钮开始录制，App 内进行一些基本操作后停止，等待后展示出分析后的数据，可以看到，在 Animation Hitches 模版中有以下几个轨道：
 - Hitch 显示了卡顿及其持续的时长
@@ -105,6 +106,7 @@ categories: iOS Perf
 可以看到方法比较耗时
     ![images](/assets/imgs/commit_hitch_problem_code.png)
 从截图可以看出 201 行函数更新子cell比较耗时，因此进行优化代码后，继续分析，直到消灭所有严重的卡顿(黄色、红色)。
+
 ## 总结分析方法
 - 通过 Animation Hitches 找到卡顿记录
 - 查看卡顿类型(按严重程度黄色、红色为需要重点关注)
@@ -112,9 +114,6 @@ categories: iOS Perf
 - 选中此时的 App 主线程，切到 Time Profiler 找到耗时的函数
 - 优化代码(根据上面的优化建议)
 - 重新分析，重复制导修复所有卡顿
-
-
-
 
 ## 参考
 官方：https://developer.apple.com/videos/play/tech-talks/10856
