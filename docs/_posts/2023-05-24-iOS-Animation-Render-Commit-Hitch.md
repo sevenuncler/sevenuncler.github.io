@@ -52,10 +52,10 @@ Metal/OpenGL ES 按照上面命令执行绘制，具体方法是按照视图层�
 ![images](/assets/imgs/render_hitch_layer_off_screen.png)
 
 - 根据记录找到对应的代码，进行离屏渲染排查，代码优化，以下是一些代码优化建议
-1.**Shadowing**，不使用shadow 属性，而使用 shadowPath 告知 Render 阴影的形状，这样就避免了渲染阴影时不知道具体形状而需要离谱先绘制图层再绘制阴影的离屏渲染问题    
-2.**Masking**, 使用 maskToBounds 代替设置自定义蒙板
-3.**Rounded Rectangles**，使用 cornerRadius 和 cornerCurve 代替蒙板设置矩形圆角
-4.**maskToBounds**，如果子视图明确不会超出本视图边界，避免使用 maskToBounds
+1.**Shadowing**，不使用shadow 属性，而使用 shadowPath 告知 Render 阴影的形状，这样就避免了渲染阴影时不知道具体形状而需要离谱先绘制图层再绘制阴影的离屏渲染问题   
+2.**Masking**, 使用 maskToBounds 代替设置自定义蒙板  
+3.**Rounded Rectangles**，使用 cornerRadius 和 cornerCurve 代替蒙板设置矩形圆角  
+4.**maskToBounds**，如果子视图明确不会超出本视图边界，避免使用 maskToBounds  
 - 重复上述步骤
 
 
