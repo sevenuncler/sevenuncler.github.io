@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "iOS Animation Hitches(2) - Commit Hitch 优化"
+title:  "iOS Animation Hitches - Commit Hitch 优化(二)"
 date:   2023-05-22 13:58:51 +0800
 categories: iOS Perf
 ---
