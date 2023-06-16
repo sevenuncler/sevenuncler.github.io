@@ -58,6 +58,7 @@ UIAppliication 将事件发送给目标响应视图，对应的触摸系列方�
 
 > UIResponder 如何不响应事件？
 > 我们经常说一个 UIResponder 或者 UIView 不响应一个触摸事件，是指不额外做一些处理，并不是不实现上述方法，或者指的userInteractionEnabled = false, 而是本身采用默认实现，将事件往响应链路上抛，问问有没有谁需要接收这个事件 UIEvent。
+
 ### 手势识别
 
 按照优先级，在发送事件给 UIResponder 之前，UIApplication 会先将 UIEvent 发送给寻找目标视图过程中收集的手势识别器，手势识别器虽然没有继承 UIResponder，但是也有对应的 touch系列方法，可以看到确实是早于 UIView 接收到 UIEvent，手势识别器内部有属性代表识别状态，当状态变成 XXX 时，代表手势识别成功，那么系统设定手势的优先级大于普通 UIResponder 基础的事件响应，将取消后续对 UIResponder 发送 UIEvent，还是发送 cancel 事件。假如识别器识别失败，则继续往 UIResponder 发送 UIEvent
@@ -165,9 +166,9 @@ frame #14: 0x00000001803731dc CoreFoundation`__CFRUNLOOP_IS_CALLING_OUT_TO_A_SOU
 
 
 # 引用
-官网：https://github.com/apple/swift-corelibs-foundation/
-iOS 博客：https://juejin.cn/user/1591748569076078
-Runloop 内部详解：http://www.xbhp.cn/news/160874.html
-手势详解：https://juejin.cn/post/6844904175415853064
-牛：https://www.jianshu.com/p/c294d1bd963d
-iOS 事件传递与处理：https://juejin.cn/post/6956756476559884301
+官网：https://github.com/apple/swift-corelibs-foundation/  
+iOS 博客：https://juejin.cn/user/1591748569076078    
+Runloop 内部详解：http://www.xbhp.cn/news/160874.html    
+手势详解：https://juejin.cn/post/6844904175415853064     
+牛：https://www.jianshu.com/p/c294d1bd963d     
+iOS 事件传递与处理：https://juejin.cn/post/6956756476559884301     
