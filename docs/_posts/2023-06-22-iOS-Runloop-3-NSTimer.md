@@ -245,10 +245,12 @@ class ProfileViewController: UIViewController {
 - 上面打印记录可以看出，从  11:33:05 开始每隔5秒钟执行一次定时器回调，当11:33:12 手动触发一次主线程卡顿，持续5s，卡顿在 11:33:17结束，按原计划定时器将在
 11:33:15 执行一次，由于卡顿导致延迟，在延迟之后立马执行了一次 11:33:17.082326；
 - 并且恢复正常后下一次执行的时间为最初计划的 11:33:20，而不是最后一次定时器执行的 11:33:17 + 5 = 11:33:22 触发下一次定时器
+
 ### c. DISPATCH_SOURCE_TYPE_TIMER 与 NSTimer 的区别
-总所周知，通过     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
- 也能创建定时器，从上面定时器内部原来也可以看出来，定时器底层实际由 DISPATCH_SOURCE_TYPE_TIMER 实现，那么他们之间有什么差异呢，坦诚的说，还不了解，敬请期待后面关于 GCD 的源码解读吧。
+众所周知，通过 
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);    
+也能创建定时器，从上面定时器内部原来也可以看出来，定时器底层实际由 DISPATCH_SOURCE_TYPE_TIMER 实现，那么他们之间有什么差异呢，坦诚的说，还不了解，敬请期待后面关于 GCD 的源码解读吧。
 
 # 引用
 
-[https://juejin.cn/post/6844903968250789896](https://note.youdao.com/)
+Timer循环引用: [https://juejin.cn/post/6844903968250789896](https://note.youdao.com/)
